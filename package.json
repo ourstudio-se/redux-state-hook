@@ -1,6 +1,6 @@
 {
   "name": "redux-state-hook",
-  "version": "1.0.0-pre",
+  "version": "1.0.0",
   "description": "A React hook for consuming Redux state",
   "scripts": {
     "prepare": "npm run prettify && npm run type-check && npm run lint && npm run test",
