@@ -10,9 +10,9 @@ import TodoForm from "./todo-form";
 
 const sorter = (a, b) => {
     if (a.resolved && !b.resolved)
-        return -1;
-    if (b.resolved && !a.resolved)
         return 1;
+    if (b.resolved && !a.resolved)
+        return -1;
 
     return 0;
 };

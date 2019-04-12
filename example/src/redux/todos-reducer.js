@@ -33,7 +33,7 @@ export default (state = initialState, action) => {
                 },
             };
         case REMOVE:
-            const nextState = { ...state };
+            const nextState = { ...state, todos: { ...state.todos} };
             delete nextState.todos[action.todo.id];
 
             if (nextState.active === action.todo.id)

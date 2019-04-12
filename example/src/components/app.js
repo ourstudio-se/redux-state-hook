@@ -1,5 +1,6 @@
 import React from "react";
 
+import ActionLog from "./action-log";
 import TodoList from "./todo-list";
 import TodoItem from "./todo-item";
 
@@ -9,6 +10,7 @@ const App = () => (
         <h2 style={{ borderBottom: "1px solid black"}}>Todo list</h2>
         <TodoList />
         <TodoItem />
+        <ActionLog />
     </div>
 );
 export default App;

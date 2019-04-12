@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
         case REMOVE:
         case SHOW:
             return {
-                logs: state.logs.slice(0, 8).concat([ `Action "${action.type}" for todo with ID "${action.todo.id}"` ]),
+                logs: state.logs.concat([ `Action "${action.type}" for todo with ID "${action.todo.id}"` ]),
             };
         default:
             return state;
