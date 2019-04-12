@@ -30,7 +30,13 @@ The hook itself takes an optional `selectorFn` which is a utility function to se
 
 `useReduxState` returns a value pair, where the first value is the selected partial state, and the second value is the `dispatch` function from Redux. This function should be used to dispatch actions.
 
+The `selectorFn` is an optional parameter, and when it's omitted the hook always returns a `null` value for the partial state return. This is useful when a component only need access to the `dispatch` function without caring about any state or state changes.
+
 ## Example
+
+There's a runnable, full scale, example available in the [example directory](https://github.com/ourstudio-se/redux-state-hook/tree/master/example).
+
+## Usage
 
 app.js
 ```javascript
@@ -86,4 +92,3 @@ export const AnotherComponent = () => {
     );
 };
 ```
-
