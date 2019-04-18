@@ -108,11 +108,23 @@ describe("useReduxState", () => {
 
         const nextValue = "updated-value";
         const [_, dispatch] = result.current;
+
         act(() => {
             dispatch({ type: ACTION_TWO, value: nextValue });
         });
 
         const [state] = result.current;
         expect(state).toEqual(nextValue);
+    });
+    it("Uses correct types", () => {
+        const selector = (tree: IState) => tree.two.value;
+        const { result } = renderHook(() => useReduxState(selector), {
+            wrapper: ({ children }) => (
+                <Provider store={getStore()}>{children}</Provider>
+            ),
+        });
+        const [two, _] = result.current;
+
+        expect(typeof two).toBe("string");
     });
 });
