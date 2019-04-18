@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Store, AnyAction } from "redux";
+import { Store, Dispatch } from "redux";
 
 import { isEqual } from "./equality";
 
@@ -22,7 +22,7 @@ type ReduxStateSelector<TState, TSelected> = (state: TState) => TSelected;
 
 export const useReduxState = <TState, TSelected>(
     selector: ReduxStateSelector<TState, TSelected> | null = null
-): [TSelected | null, React.Dispatch<AnyAction>] => {
+): [TSelected | null, Dispatch] => {
     const { dispatch, getState, subscribe } = React.useContext(
         ReduxStateContext
     );
