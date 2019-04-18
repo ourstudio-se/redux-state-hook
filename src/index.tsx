@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Store } from "redux";
+import { Store, AnyAction } from "redux";
 
 import { isEqual } from "./equality";
 
@@ -18,9 +18,11 @@ export const Provider = ({ children, store }: IProviderProps) => (
     </ReduxStateContext.Provider>
 );
 
-type ReduxStateSelector = (state: any) => any;
+type ReduxStateSelector<TState, TSelected> = (state: TState) => TSelected;
 
-export const useReduxState = (selector: ReduxStateSelector | null = null) => {
+export const useReduxState = <TState, TSelected>(
+    selector: ReduxStateSelector<TState, TSelected> | null = null
+): [TSelected | null, React.Dispatch<AnyAction>] => {
     const { dispatch, getState, subscribe } = React.useContext(
         ReduxStateContext
     );
@@ -30,7 +32,7 @@ export const useReduxState = (selector: ReduxStateSelector | null = null) => {
     const [localState, setLocalState] = React.useState(() =>
         selector(getState())
     );
-    const stateRef = React.useRef();
+    const stateRef = React.useRef<TSelected>();
     stateRef.current = localState;
 
     React.useEffect(
