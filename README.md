@@ -1,3 +1,7 @@
+[![build status](https://travis-ci.org/ourstudio-se/redux-state-hook.svg?branch=master)](https://travis-ci.org/ourstudio-se/redux-state-hook.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/ourstudio-se/redux-state-hook/badge.svg?branch=feature%2Fcoveralls)](https://coveralls.io/github/ourstudio-se/redux-state-hook?branch=feature%2Fcoveralls)
+[![npm version](https://badge.fury.io/js/redux-state-hook.svg)](https://badge.fury.io/js/redux-state-hook)
+
 # redux-state-hook
 
 A lightweight React hook to consume Redux state
